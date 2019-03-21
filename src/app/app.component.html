@@ -1,6 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div>
 <p-card>
-<div style="width: 500px;border: inset;overflow: scroll;max-height: 400px;">
+<div style="width: 500px;border: inset;overflow: scroll;height: 300px;max-height: 300px;">
 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
   <!-- This is the tree node template for leaf nodes -->
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
@@ -31,12 +32,17 @@
 </div>
 </p-card>
 
-  <div style="display: inline-block;position: absolute;margin-top: 5px;margin-left: 25px;">
+  <div style="display: inline-block;margin-top: 5px;margin-left: 15px;width: 500px;height: 300px;border: inset;overflow: scroll;max-height: 300px" >
+    
   <mat-chip-list #chipList class="mat-chip-list-stacked">
-      <mat-label style="margin-left: 7px">{{selectdNodeName}}</mat-label>
-    <mat-chip *ngFor="let node of values" [selectable]="selectable">
+    <p></p>
+      <b><mat-label style="margin-left: 20px;">{{selectdNodeName}}</mat-label></b>
+    <label style="margin-left: 20px;margin-top: 10px;" *ngFor="let node of values" >
       {{node.name}}
-    </mat-chip>
+    <br>
+    </label>
   </mat-chip-list>
   </div>
+  
+</div>
 <router-outlet></router-outlet>
