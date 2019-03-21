@@ -1,0 +1,13 @@
+//@import "../../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+//@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.example-tree-invisible {
+    display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
