@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTreeModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatTreeModule, MatIconModule, MatButtonModule, MatChipsModule, MatLabel, MatFormFieldModule } from '@angular/material';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     ChipsModule,
     AccordionModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatChipsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

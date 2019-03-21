@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <p-card>
-<div style="width: 500px">
+<div style="width: 500px;border: inset;">
 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
   <!-- This is the tree node template for leaf nodes -->
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
@@ -30,7 +30,13 @@
 </mat-tree>
 </div>
 </p-card>
-<p-card>
-  <p-chips [(ngModel)]="values"></p-chips>
-</p-card>
+
+  <div style="display: inline-block;position: absolute;margin-top: 5px;margin-left: 25px;">
+  <mat-chip-list #chipList class="mat-chip-list-stacked">
+      <mat-label style="margin-left: 7px">{{selectdNodeName}}</mat-label>
+    <mat-chip *ngFor="let node of values" [selectable]="selectable">
+      {{node.name}}
+    </mat-chip>
+  </mat-chip-list>
+  </div>
 <router-outlet></router-outlet>

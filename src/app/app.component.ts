@@ -2116,6 +2116,7 @@ export class AppComponent {
   dataSource = new MatTreeNestedDataSource<TreeNode>();
   chield : any;
   values: string[];
+  selectdNodeName :String;
   constructor() {
     this.dataSource.data = TREE_DATA;
   }
@@ -2123,13 +2124,9 @@ export class AppComponent {
   hasChild = (_: number, node: TreeNode) => !!node.children && node.children.length > 0;
 
   logNode(node){
-    console.log("load node");
-    console.log(JSON.stringify(node));
-    this.chield=node.children;
-    console.log(this.chield)
+    this.selectdNodeName = node.name;
     this.values=node.children;
-    console.log("Value is"+this.values);
-    
+    console.log(this.values);
   }
 }
 enableProdMode();
