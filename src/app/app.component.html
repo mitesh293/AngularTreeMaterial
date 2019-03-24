@@ -1,48 +1,48 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-<p-card>
-<div style="width: 500px;border: inset;overflow: scroll;height: 300px;max-height: 300px;">
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
-  <!-- This is the tree node template for leaf nodes -->
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-    <li class="mat-tree-node" >
-      <!-- use a disabled button to provide padding for tree leaf -->
-      <button mat-icon-button disabled (click)="logNode($event)"></button>
-      {{node.name}}
-    </li>
-  </mat-tree-node>
-  <!-- This is the tree node template for expandable nodes -->
-  <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-    <li>
-      <div class="mat-tree-node">
-        <button mat-icon-button matTreeNodeToggle (click)="logNode(node)"
+  <p-card>
+    <div style="width: 500px;border: inset;overflow: scroll;height: 300px;max-height: 300px;">
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+        <!-- This is the tree node template for leaf nodes -->
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+          <li class="mat-tree-node">
+            <!-- use a disabled button to provide padding for tree leaf -->
+            <button mat-icon-button disabled (click)="logNode($event)"></button>
+            {{node.name}}
+          </li>
+        </mat-tree-node>
+        <!-- This is the tree node template for expandable nodes -->
+        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+          <li>
+            <div class="mat-tree-node">
+              <button mat-icon-button matTreeNodeToggle (click)="logNode(node)"
                 [attr.aria-label]="'toggle ' + node.name">
-          <mat-icon class="mat-icon-rtl-mirror">
-            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-          </mat-icon>
-        </button>
-        {{node.name}}
-      </div>
-      <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
-        <ng-container matTreeNodeOutlet></ng-container>
-      </ul>
-    </li>
-  </mat-nested-tree-node>
-</mat-tree>
-</div>
-</p-card>
+                <mat-icon class="mat-icon-rtl-mirror">
+                  {{treeControl.isExpanded(node) ? 'remove' : 'add'}}
+                </mat-icon>
+              </button>
+              {{node.name}}
+            </div>
+            <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+              <ng-container matTreeNodeOutlet></ng-container>
+            </ul>
+          </li>
+        </mat-nested-tree-node>
+      </mat-tree>
+    </div>
+  </p-card>
 
-  <div style="display: inline-block;margin-top: 5px;margin-left: 15px;width: 500px;height: 300px;border: inset;overflow: scroll;max-height: 300px" >
-    
-  <mat-chip-list #chipList class="mat-chip-list-stacked">
-    <p></p>
-      <b><mat-label style="margin-left: 20px;">{{selectdNodeName}}</mat-label></b>
-    <label style="margin-left: 20px;margin-top: 10px;" *ngFor="let node of values" >
-      {{node.name}}
-    <br>
-    </label>
-  </mat-chip-list>
+  <div
+    style="display: inline-block;margin-top: 5px;margin-left: 15px;width: 500px;height: 300px;border: inset;overflow: scroll;max-height: 300px">
+
+    <mat-chip-list #chipList class="mat-chip-list-stacked">
+      <!-- <b><mat-label style="margin-left: 20px;">{{selectdNodeName}}</mat-label></b> -->
+      <label style="margin-left: 20px;margin-top: 10px;" *ngFor="let node of values">
+        {{node.name}}
+        <br>
+      </label>
+    </mat-chip-list>
   </div>
-  
+
 </div>
 <router-outlet></router-outlet>

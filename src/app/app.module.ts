@@ -10,6 +10,7 @@ import {CardModule} from 'primeng/card';
 import {AccordionModule} from 'primeng/accordion';
 import {ChipsModule} from 'primeng/chips';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     MatTreeModule,
     FormsModule,
     MatIconModule,
+    HttpClientModule,
     CardModule,
     ChipsModule,
     AccordionModule,
