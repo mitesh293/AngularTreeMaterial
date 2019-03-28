@@ -1,48 +1,149 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <p-card>
-    <div style="width: 500px;border: inset;overflow: scroll;height: 300px;max-height: 300px;">
-      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
-        <!-- This is the tree node template for leaf nodes -->
-        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-          <li class="mat-tree-node">
-            <!-- use a disabled button to provide padding for tree leaf -->
-            <button mat-icon-button disabled (click)="logNode($event)"></button>
-            {{node.name}}
-          </li>
-        </mat-tree-node>
-        <!-- This is the tree node template for expandable nodes -->
-        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-          <li>
-            <div class="mat-tree-node">
-              <button mat-icon-button matTreeNodeToggle (click)="logNode(node)"
-                [attr.aria-label]="'toggle ' + node.name">
-                <mat-icon class="mat-icon-rtl-mirror">
-                  {{treeControl.isExpanded(node) ? 'remove' : 'add'}}
-                </mat-icon>
-              </button>
+<!-- <div class="ui-fluid">
+  <div class="ui-g">
+      <div class="ui-g-12 ui-md-6">
+    <p-card>
+      <div style="width: 500px;border: inset;overflow: scroll;height: 300px;max-height: 300px;">
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+
+          <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+            <li class="mat-tree-node">
+
+              <button mat-icon-button disabled (click)="logNode($event)"></button>
               {{node.name}}
-            </div>
-            <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
-              <ng-container matTreeNodeOutlet></ng-container>
-            </ul>
-          </li>
-        </mat-nested-tree-node>
-      </mat-tree>
-    </div>
-  </p-card>
+            </li>
+          </mat-tree-node>
 
-  <div
-    style="display: inline-block;margin-top: 5px;margin-left: 15px;width: 500px;height: 300px;border: inset;overflow: scroll;max-height: 300px">
-
-    <mat-chip-list #chipList class="mat-chip-list-stacked">
-      <!-- <b><mat-label style="margin-left: 20px;">{{selectdNodeName}}</mat-label></b> -->
-      <label style="margin-left: 20px;margin-top: 10px;" *ngFor="let node of values">
-        {{node.name}}
-        <br>
-      </label>
-    </mat-chip-list>
+          <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+            <li>
+              <div class="mat-tree-node">
+                <button mat-icon-button matTreeNodeToggle (click)="logNode(node)"
+                  [attr.aria-label]="'toggle ' + node.name">
+                  <mat-icon class="mat-icon-rtl-mirror">
+                    {{treeControl.isExpanded(node) ? 'remove' : 'add'}}
+                  </mat-icon>
+                </button>
+                {{node.name}}
+              </div>
+              <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+                <ng-container matTreeNodeOutlet></ng-container>
+              </ul>
+            </li>
+          </mat-nested-tree-node>
+        </mat-tree>
+      </div>
+    </p-card>
   </div>
+  </div>
+  <div class="ui-g-12 ui-md-6"></div>
+  <div class="ui-g-12 ui-md-6"></div>
+  <div class="ui-g-12 ui-md-6">
+    <div
+      style="display: inline-block;margin-top: 5px;margin-left: 15px;width: 500px;height: 300px;border: inset;overflow: scroll;max-height: 300px">
+      <div class="ui-g-2 ui-md-2">
+          &nbsp;
+      <p-button label="C" (onClick)="handleClick($event)"></p-button><br><br>&nbsp;
+      <p-button label="T" (onClick)="handleClick($event)"></p-button><br><br>&nbsp;
+      <p-button label="P" (onClick)="handleClick($event)"></p-button><br><br>&nbsp;
+      <p-button label="R" (onClick)="handleClick($event)"></p-button><br><br>&nbsp;
+      
+    </div>
+    <div class="ui-g-12 ui-md-6">
+      <mat-chip-list #chipList class="mat-chip-list-stacked">
 
+        <label style="margin-left: 20px;margin-top: 10px;" *ngFor="let node of values">
+          {{node.name}}
+          <br>
+        </label>
+      </mat-chip-list>
+    </div>
+    </div>
+  </div>
+</div>
+<p-button label="C" (onClick)="displayOption()"></p-button> -->
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-1"></div>
+    <div class="ui-g-10">
+      <p-panel header="Number Of Decimal Point" [toggleable]="true" [transitionOptions]="'500ms'">
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon">$</span>
+          <input type="text" pInputText placeholder="Number Of Decimal Point">
+        </div>
+      </p-panel>
+      <p-panel header="Administrative Mode" [toggleable]="true">
+        <div style="width:250px;margin-bottom:10px">
+
+          <!-- <p-checkbox name="AdministrativeMode" value="AdministrativeMode" label="Administrative Mode" inputId="AdministrativeMode">
+            </p-checkbox> -->
+          <input type="checkbox" [(ngModel)]="theCheckbox" data-md-icheck
+            (change)="toggleVisibility($event)" />Administrative Mode
+          <p-dialog header="Confirm" [(visible)]="display" [modal]="true" [responsive]="true" [minY]="70"
+            [maximizable]="true">
+            In Administrative Mode, you can modify or delete data created by others. Doing so might produce unexpected
+            result.<br><br>
+            Are you sure that you want to enable Administrative Mode?
+            <p-footer>
+              <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Yes"></button>
+              <button type="button" pButton icon="pi pi-close" (click)="display=false" label="No"
+                class="ui-button-secondary"></button>
+            </p-footer>
+          </p-dialog>
+        </div>
+      </p-panel>
+      <p-panel header="Internet Options" [toggleable]="true">
+        <input type="text" ui-inputgroup pInputText placeholder="Proxy Configuration Script">
+        <br>
+        <br>
+        <input type="text" ui-inputgroup pInputText placeholder="Proxy Server">
+        <h6>* If both a script and server are provided, the server will be ignored in favor of the script</h6>
+      </p-panel>
+      <p-panel header="Well display Naming" [toggleable]="true">
+        <h6>Select a predefined format,or create a custom well display name format</h6>
+        <div class="ui-g" style="width:450px;margin-bottom:10px">
+          <div class="ui-g-12">
+            <p-radioButton name="group1" value="Option 1" label="Name" [(ngModel)]="val1" inputId="opt1">
+            </p-radioButton>
+          </div>
+          <div class="ui-g-12">
+            <p-radioButton name="group1" value="Option 2" label="Uwi" [(ngModel)]="val1" inputId="opt2"></p-radioButton>
+          </div>
+          <div class="ui-g-12">
+            <p-radioButton name="group1" value="Option 3" label="Name(Uwi)" [(ngModel)]="val1" inputId="opt3">
+            </p-radioButton>
+          </div>
+          <div class="ui-g-12"><input type="radio" (change)="onItemChange(item)" name="group1" value="Option 4"
+              label="Custom: County {StateProvince}{Company}" [(ngModel)]="val1" inputId="opt4" />Custom: County</div>
+          <div>
+
+            <p-table [columns]="cols" [value]="cars" [scrollable]="true" scrollHeight="150px" selectionMode="single" [(selection)]="selectedval" dataKey="vin" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
+              <ng-template pTemplate="header" let-columns>
+                <tr>
+                  <th *ngFor="let col of columns">
+                    {{col.header}}
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr [pSelectableRow]="rowData">
+                  <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                  </td>
+                </tr>
+              </ng-template><br><br>
+              <ng-template pTemplate="summary">
+                <div style="text-align: left">
+                  Your well naming format goes here :
+                  {{selectedval ? selectedval.vin : ' '}}
+                </div>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </p-panel>
+    </div>
+    <div class="ui-g-1">
+
+    </div>
+  </div>
 </div>
 <router-outlet></router-outlet>
