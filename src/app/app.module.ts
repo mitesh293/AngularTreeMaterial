@@ -10,21 +10,39 @@ import {CardModule} from 'primeng/card';
 import {AccordionModule} from 'primeng/accordion';
 import {ChipsModule} from 'primeng/chips';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
-import { GridModule } from '@syncfusion/ej2-angular-grids';
-import { EjGridViweComponent } from './ej-grid-viwe/ej-grid-viwe.component';
+import { HttpClientModule } from '@angular/common/http';
+import {ButtonModule} from 'primeng/button';
+import {FieldsetModule} from 'primeng/fieldset';
+import { DisplayoptionModule } from './displayoption/displayoption.module';
+import {PanelModule} from 'primeng/panel';
+import {CheckboxModule} from 'primeng/checkbox';
+import {DialogModule} from 'primeng/dialog';
+import {InputTextModule} from 'primeng/inputtext';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { DataTableModule } from 'primeng/datatable';
+import { PaginatorModule, MessageService } from 'primeng/primeng';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    EjGridViweComponent
+    AppComponent
   ],
   imports: [
+    DialogModule,
+    TableModule,
+    MatExpansionModule,
+    InputTextModule,
+    RadioButtonModule,
+    CheckboxModule,
+    FormsModule,
     BrowserModule,
+    PanelModule,
     AppRoutingModule,
     MatTreeModule,
     FormsModule,
     MatIconModule,
+    HttpClientModule,
     CardModule,
     ChipsModule,
     AccordionModule,
@@ -32,10 +50,13 @@ import { EjGridViweComponent } from './ej-grid-viwe/ej-grid-viwe.component';
     BrowserAnimationsModule,
     MatChipsModule,
     MatFormFieldModule,
-    HttpClientModule,
-    GridModule
+    ButtonModule,
+    FieldsetModule,
+    DisplayoptionModule,
+    PaginatorModule,
+    DataTableModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
