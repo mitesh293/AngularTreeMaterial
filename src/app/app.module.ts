@@ -10,10 +10,14 @@ import {CardModule} from 'primeng/card';
 import {AccordionModule} from 'primeng/accordion';
 import {ChipsModule} from 'primeng/chips';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { GridModule } from '@syncfusion/ej2-angular-grids';
+import { EjGridViweComponent } from './ej-grid-viwe/ej-grid-viwe.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EjGridViweComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,9 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     BrowserAnimationsModule,
     MatChipsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule,
+    GridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

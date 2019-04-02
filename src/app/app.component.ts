@@ -1,7 +1,8 @@
-import { Component, enableProdMode } from '@angular/core';
+import { Component, enableProdMode, Injectable } from '@angular/core';
 import {NestedTreeControl} from '@angular/cdk/tree';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
-
+import { NodeService } from './NodeService ';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 /**
  * Food data with nested structure.
  * Each node has a name and an optiona list of children.
@@ -2107,7 +2108,8 @@ const TREE_DATA: TreeNode[] = [
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers:[NodeService]
 })
 export class AppComponent {
   title = 'TreeView';
@@ -2117,8 +2119,12 @@ export class AppComponent {
   chield : any;
   values: string[];
   selectdNodeName :String;
-  constructor() {
+
+  constructor(private nodeService: NodeService) {
     this.dataSource.data = TREE_DATA;
+   //TODO set the this.dataSource.data convert the service response to treenode format
+   //this.nodeService.getFiles().then(files => this.dataSource.data = files);
+   this.nodeService.getFiles();
   }
 
   hasChild = (_: number, node: TreeNode) => !!node.children && node.children.length > 0;

@@ -1,0 +1,34 @@
+{
+  "data":
+  [
+{
+  "name": "All Wells",
+  "children": [
+  {
+      "name": "Well1",
+      "children":[
+        {
+          "name":"Curves ",
+    "children":[
+            {
+              "name": "All Curves (W1)",
+              "children":[
+                {"name": "Curve 1 (ALL(W1))"},
+                {"name": "Curve 2 (ALL(W1))"},
+                {"name": "Curve 3 (ALL(W1))"},
+                {"name": "Curve 4 (ALL(W1))"},
+                {"name": "Curve 5 (ALL(W1))"},
+                {"name": "Curve 6 (ALL(W1))"},
+                {"name": "Curve 7 (ALL(W1))"},
+                {"name": "Curve 8 (ALL(W1))"},
+                {"name": "Curve 9 (ALL(W1))"},
+                {"name": "Curve 10 (ALL(W1))"}
+      ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+  ]}
