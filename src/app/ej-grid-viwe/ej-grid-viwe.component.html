@@ -1,8 +1,13 @@
-Your selected values are {{selcetedArraysLabels}}
-<ejs-grid #grid [dataSource]='data' [selectionSettings]='selectionOptions' (rowSelected)='rowSelected($event)'> 
 
+<div>Your selected values are: {{selcetedArraysLabels}}
+  <button class="ej-button e-btn e-success"  (click)="clearAllSelectedArrays()" ejs-button>Clear ALL</button>
+  <button class="ej-button e-btn e-success" (click)="deleteSelectedArray()" ejs-button>Delete</button>
+</div>
+<div style="margin-top: 12px;">
+<ejs-grid #grid [dataSource]='data' [selectionSettings]='selectionOptions' (rowSelected)='rowSelected($event)'> 
   <e-columns>
     <e-column field='OrderID' headerText='Order ID' textAlign='Right' width=90 ></e-column>
     <e-column field='CustomerID' headerText='Customer ID' width=150></e-column>
   </e-columns>
 </ejs-grid>
+</div>

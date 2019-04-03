@@ -59,6 +59,7 @@ import { GridModule } from '@syncfusion/ej2-angular-grids';
     DisplayoptionModule,
     PaginatorModule,
     DataTableModule,
+    ButtonModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

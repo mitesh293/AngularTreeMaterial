@@ -26,10 +26,21 @@ export class EjGridViweComponent implements OnInit {
 
   rowSelected(args: RowSelectEventArgs) {
     let selectedrowindex: number[] = this.grid.getSelectedRowIndexes();  // Get the selected row indexes.
-    //alert(selectedrowindex); // To alert the selected row indexes.
-    let selectedrecords: Object[] = this.grid.getSelectedRecords();  // Get the selected records.
-    //this.selectedRowsGlobal.push(selectedrecords[0].OrderID);
+    
+    let selectedrecords: any[] = this.grid.getSelectedRecords();  // Get the selected records.
+    this.selectedRowsGlobal.push(selectedrecords[0].OrderID);
     this.selcetedArraysLabels = this.selectedRowsGlobal.join('');
     console.log(this.selcetedArraysLabels);
-}
+  }
+
+  deleteSelectedArray(){
+    this.selectedRowsGlobal.pop();
+    this.selcetedArraysLabels = this.selectedRowsGlobal.join('');
+    console.log("After remove "+this.selcetedArraysLabels);
+  }
+
+  clearAllSelectedArrays(){
+    this.selectedRowsGlobal=[];
+    this.selcetedArraysLabels ="";
+  }
 }
