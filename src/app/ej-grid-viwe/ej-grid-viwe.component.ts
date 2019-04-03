@@ -29,7 +29,7 @@ export class EjGridViweComponent implements OnInit {
     //alert(selectedrowindex); // To alert the selected row indexes.
     let selectedrecords: Object[] = this.grid.getSelectedRecords();  // Get the selected records.
     //this.selectedRowsGlobal.push(selectedrecords[0].OrderID);
-    //this.selcetedArraysLabels = this.selectedRowsGlobal.join('');
+    this.selcetedArraysLabels = this.selectedRowsGlobal.join('');
     console.log(this.selcetedArraysLabels);
 }
 }

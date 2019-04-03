@@ -23,14 +23,18 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { DataTableModule } from 'primeng/datatable';
 import { PaginatorModule, MessageService } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
+import { EjGridViweComponent } from './ej-grid-viwe/ej-grid-viwe.component';
+import { GridModule } from '@syncfusion/ej2-angular-grids';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EjGridViweComponent
   ],
   imports: [
     DialogModule,
     TableModule,
+    GridModule,
     MatExpansionModule,
     InputTextModule,
     RadioButtonModule,
